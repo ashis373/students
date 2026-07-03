@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24' # Updated to Node 24 to fix deprecation warning
           cache: 'npm'
           cache-dependency-path: 'stusde/package-lock.json'
           
@@ -43,5 +43,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps # Many servers require FTPS explicitly
+          port: 21 # Explicitly set port 21
+          timeout: 120000 # Increased timeout to 2 minutes to prevent sudden drops
           local-dir: ./stusde/dist/
           server-dir: /student/
