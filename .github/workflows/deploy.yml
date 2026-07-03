@@ -30,6 +30,13 @@ jobs:
         working-directory: ./stusde
         run: npm run build
         
+      - name: Upload Build Artifact (For Inspection)
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-build-dist
+          path: ./stusde/dist/
+          retention-days: 7
+          
       - name: Deploy to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
