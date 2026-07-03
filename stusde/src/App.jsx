@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>🎓 Student Dashboard</h1>
+      <h1>🎓 Student Dashboards</h1>
 
       <div className="cards">
         <div className="card">
